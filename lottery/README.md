@@ -44,7 +44,7 @@ If you want to develop the app from scratch, follow these steps:
 
 7. Copy the artifacts from the Hardhat project to the React project under the `src` directory.
 
-8. After deploying the contract, set the following environment variables:
+8. After deploying the contract, install `dotenv` and set the following environment variables:
 
     ```
     REACT_APP_ETHEREUM_URL=<http://localhost:8545>
