@@ -1,4 +1,3 @@
-import CardList from '@/components/CardList';
 import factory from '../ethereum/factory';
 import { Campaign } from '@/ethereum/typechain-types';
 import CampaignListView from '@/components/CampaignListView';

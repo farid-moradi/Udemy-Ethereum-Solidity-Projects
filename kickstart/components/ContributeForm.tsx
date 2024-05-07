@@ -1,11 +1,16 @@
 'use client';
 import React, { useState } from 'react';
 import { FormField, Button, Form, Input, Message } from 'semantic-ui-react';
-import factory from '../ethereum/factory';
 import { useRouter } from 'next/navigation';
+import { ethers } from 'ethers';
+import Campaign from '@/ethereum/campaign';
 
-const CampaignForm = () => {
-  const [minimumContributions, setMinimumContributions] = useState('');
+interface Props {
+  address: string;
+}
+
+const ContributeForm = ({ address }: Props) => {
+  const [value, setValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -16,13 +21,11 @@ const CampaignForm = () => {
     setErrorMessage('');
 
     try {
-      const factoryContract = await factory();
-      const transaction = await factoryContract.createCampaign(
-        minimumContributions
-      );
+      const campaign = await Campaign(address);
+      const transaction = await campaign.contribute({
+        value: ethers.parseEther(value),
+      });
       await transaction.wait();
-
-      router.push('/');
       router.refresh();
     } catch (err: any) {
       setErrorMessage(err.message);
@@ -30,24 +33,24 @@ const CampaignForm = () => {
 
     setLoading(false);
   };
+
   return (
     <>
-      <h3>Create a Campaign</h3>
       <Form onSubmit={onSubmit}>
         <FormField>
-          <label>Minimum Contribution</label>
+          <label>Amount to Contribution</label>
           <Input
-            label="wei"
+            label="ether"
             labelPosition="right"
-            value={minimumContributions}
+            value={value}
             onChange={(event) => {
-              setMinimumContributions(event.target.value);
+              setValue(event.target.value);
               setErrorMessage('');
             }}
           />
         </FormField>
         <Button type="submit" primary loading={loading}>
-          Create!
+          Contribute!
         </Button>
       </Form>
       {errorMessage != '' && (
@@ -57,4 +60,4 @@ const CampaignForm = () => {
   );
 };
 
-export default CampaignForm;
+export default ContributeForm;
