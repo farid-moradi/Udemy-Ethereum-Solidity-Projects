@@ -55,6 +55,7 @@ To use the existing repository:
 
 ```bash
 git clone https://github.com/farid-moradi/Udemy-Ethereum-Solidity-Projects.git
+cd Udemy-Ethereum-Solidity-Projects
 ```
 
 2. Navigate to the project directory:
@@ -103,7 +104,7 @@ npx hardhat ignition deploy ignition/modules/Campaign.ts --network localhost
 
 ```
 NEXT_PUBLIC_ETHEREUM_URL=http://localhost:8545
-NEXT_PUBLIC_CONTRACT_ADDRESS=<The-copied-contract-address>
+NEXT_PUBLIC_CONTRACT_ADDRESS=<The-contract-address>
 ```
 
   Replace the contract address that you obtained after deploying the contract.

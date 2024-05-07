@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Lottery Project (With Front-end)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is part of the Udemy Ethereum and Solidity course, updated for 2024. It is a front-end application for the lottery smart contract developed in the previous section.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+### Creating from Scratch
 
-### `npm start`
+If you want to start from scratch while watching the videos:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Run the following commands:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npx create-react-app@latest lottery-react
+cd lottery-react
+npm install ethers dotenv
+```
 
-### `npm test`
+2. Continue with the development process.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Using the Repository
 
-### `npm run build`
+To use the repository:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/farid-moradi/Udemy-Ethereum-Solidity-Projects.git
+cd Udemy-Ethereum-Solidity-Projects
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Navigate to the `lottery-react` directory
 
-### `npm run eject`
+3. Install dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+After preparing artifacts in the Lottery project by running the following commands:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npx hardhat compile
+npx hardhat ignition deploy ignition/modules/Lottery.ts --network localhost
+```
 
-## Learn More
+to deploy the contract on a local node that has been started by running `npx hardhat node` on the root directory of the lottery project, move the artifacts from `/lottery/artifacts` to `/lottery-react/src/hardhat`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Then run `npm run start` to start the project and access it on [http://localhost:3000](http://localhost:3000).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create a `.env` file in the root directory and add the following environment variables:
 
-### Code Splitting
+```
+REACT_APP_ETHEREUM_URL=http://localhost:8545
+REACT_APP_CONTRACT_ADDRESS=<The-contract-address>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Replace the contract address that you obtained after deploying the contract.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Note that you should create a manual network on Metamask that is running on `http://127.0.0.1:8545` and has Id Chain 31337.
