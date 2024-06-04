@@ -15,8 +15,15 @@ const Ethersjs = async () => {
     return signer;
   }
 
-  provider = new ethers.JsonRpcProvider(process.env.NEXT_PUBLIC_ETHEREUM_URL);
-  signer = await provider.getSigner();
+  // console.log(process.env.NEXT_PUBLIC_ETHEREUM_URL)
+  // provider = new ethers.JsonRpcProvider(process.env.NEXT_PUBLIC_ETHEREUM_URL);
+  // console.log(provider);
+  // provider = new AlchemyProvider('polygonzk', process.env.NEXT_PUBLIC_API_KEY);
+  provider = new ethers.JsonRpcProvider(process.env.ETHEREUM_URL);
+  console.log(provider);
+  const privateKey = process.env.PRIVATE_KEY;
+  signer = new ethers.Wallet(privateKey as string, provider);
+  // signer = await provider.getSigner();
   return signer;
 };
 
