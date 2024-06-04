@@ -15,14 +15,18 @@ const Ethersjs = async () => {
     return signer;
   }
 
-  // console.log(process.env.NEXT_PUBLIC_ETHEREUM_URL)
+  // Sepolia connection
   // provider = new ethers.JsonRpcProvider(process.env.NEXT_PUBLIC_ETHEREUM_URL);
-  // console.log(provider);
-  // provider = new AlchemyProvider('polygonzk', process.env.NEXT_PUBLIC_API_KEY);
+  // provider = new AlchemyProvider('sepolia', process.env.NEXT_PUBLIC_API_KEY);
+
+  // Polygon Cardano connection
   provider = new ethers.JsonRpcProvider(process.env.ETHEREUM_URL);
   console.log(provider);
   const privateKey = process.env.PRIVATE_KEY;
   signer = new ethers.Wallet(privateKey as string, provider);
+
+  // Local connection
+  // provider = new ethers.JsonRpcProvider(process.env.ETHEREUM_URL);
   // signer = await provider.getSigner();
   return signer;
 };

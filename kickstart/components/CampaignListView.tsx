@@ -1,11 +1,11 @@
-'use client';
+// 'use client';
 import React from 'react';
 import ButtonExampleLabeledIconShorthand from './Button';
 import CardList from './CardList';
-import { Campaign } from '@/ethereum/typechain-types';
+import { Campaign, CampaignFactory } from '@/ethereum/typechain-types';
 
-interface Props {
-  campaigns: Campaign[];
+export interface Props {
+  campaigns: string[];
 }
 
 const CampaignListView = ({ campaigns }: Props) => {

@@ -59,4 +59,6 @@ const RequestRow = memo(({ id, request, address, approversCount }: Props) => {
   );
 });
 
+RequestRow.displayName = 'RequestRow';
+
 export default RequestRow;

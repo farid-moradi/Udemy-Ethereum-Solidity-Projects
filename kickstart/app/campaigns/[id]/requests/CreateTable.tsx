@@ -58,4 +58,6 @@ const CreateTable = memo(
   }
 );
 
+CreateTable.displayName = 'CreateTable';
+
 export default CreateTable;

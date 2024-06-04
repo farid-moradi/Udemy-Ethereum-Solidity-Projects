@@ -103,7 +103,7 @@ npx hardhat ignition deploy ignition/modules/Campaign.ts --network localhost
 4. Create a `.env` file in the root directory and add the following environment variables:
 
 ```
-NEXT_PUBLIC_ETHEREUM_URL=http://localhost:8545
+ETHEREUM_URL=http://localhost:8545
 NEXT_PUBLIC_CONTRACT_ADDRESS=<The-contract-address>
 ```
 
