@@ -86,7 +86,6 @@ describe('Campaigns', function () {
     let balance = await ethers.provider.getBalance(account1);
     let balanceBigInt = ethers.parseEther(balance.toString());
     let balanceFinal = parseFloat(balanceBigInt.toString());
-    console.log(balanceFinal);
     expect(balanceFinal).to.gt(104);
   });
 });

@@ -21,7 +21,6 @@ const Ethersjs = async () => {
 
   // Polygon Cardano connection
   provider = new ethers.JsonRpcProvider(process.env.ETHEREUM_URL);
-  console.log(provider);
   const privateKey = process.env.PRIVATE_KEY;
   signer = new ethers.Wallet(privateKey as string, provider);
 
