@@ -2,7 +2,6 @@ FROM node:18-alpine
 
 # Set environment variables
 
-
 # Create app directory
 WORKDIR /usr/src/app
 
