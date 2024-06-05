@@ -1,3 +1,4 @@
+'use client';
 import CampaignForm from '@/components/CampaignForm';
 import React from 'react';
 
