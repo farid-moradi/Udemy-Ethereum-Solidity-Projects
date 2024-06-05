@@ -17,10 +17,13 @@ const CampaignForm = () => {
 
     try {
       const factoryContract = await factory();
+      console.log(factoryContract);
       const transaction = await factoryContract.createCampaign(
         minimumContributions
       );
-      await transaction.wait();
+      console.log(transaction);
+      const returnValue = await transaction.wait();
+      console.log(returnValue);
 
       router.push('/');
       router.refresh();

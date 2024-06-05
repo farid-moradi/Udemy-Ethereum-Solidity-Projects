@@ -9,9 +9,6 @@ const getSigner = async () => {
 
 const instance = async () => {
   const signer = await getSigner();
-  console.log(signer);
-  console.log(process.env.NEXT_PUBLIC_CONTRACT_ADDRESS);
-  console.log(MyContractArtifact.abi);
   return new Contract(
     process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || '',
     MyContractArtifact.abi,
