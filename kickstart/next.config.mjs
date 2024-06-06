@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
-  typescript: {
-    ignoreBuildErrors: true,
+  swcMinify: false,
+  compiler: {
+    removeConsole: false,
+    styledComponents: true,
   },
+  optimizeFonts: false,
 };
 
 export default nextConfig;
