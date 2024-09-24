@@ -11,8 +11,8 @@ services:
       - '3010:3000'
     hostname: kickstart
     networks:
-      - personal-blog_default
+      - taksamesh_app-network
 
 networks:
-  personal-blog_default:
+  taksamesh_app-network:
     external: true
